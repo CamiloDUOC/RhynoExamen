@@ -1,0 +1,114 @@
+{% load static%}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RhynoSetups</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://icons8.com/icon/ZRiAFreol5mE/instagram">
+    <link href=" {% static 'core/css/bootstrap.min.css' %} " rel="stylesheet">
+    <link href=" {% static 'core/css/style.css' %} " rel="stylesheet">
+    <link href=" {% static 'core/css/build.css' %} " rel="stylesheet">
+</head>
+
+<style>
+    body {
+        width: 100%;
+        height: 100vh;
+        background-image: url("{% static 'core/img/Fondo.jpg' %}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: repeat;
+        font-family: Roboto, "sans-serif";
+    }
+</style>
+
+<body>
+    <!-- BARRA DE NAVEGACIÓN -->
+
+    <div class="naveg">
+        <div class="navbar">
+            <img src="{% static 'core/img/logo2.png' %}" class="logo" alt="Main Logo" width="250" height="150">
+            <ul>
+                <li><a href="{% url 'home' %}">Inicio</a></li>
+                <li><a href="{% url 'contacto' %}">Contacto</a></li>
+                <li><a href="{% url 'builds' %}">Builds</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <header class="masthead text-center text-white">
+    </header>
+
+    <div class="row">
+        <h1>Listado de Productos</h1>
+    </div>
+    <br>
+    <br>
+    <br>
+
+    <div class="row">
+        <table border="1" class="customers">
+            <h1 class=" formomar4">LISTA DE PRODUCTOS</h1>
+            <thead>
+                <tr>
+                    <th cope="col">Id de producto</th>
+                    <th cope="col">Descripcion del producto</th>
+                    <th cope="col">Nombre del producto</th>
+                    <th cope="col">Precio del producto</th>
+                </tr>
+            </thead>
+            {% for re in productos%}
+            <section>
+                <tr>
+                    <td>{{re.id }}</td>
+                    <td>{{re.descripcion }}</td>
+                    <td>{{re.nombre | capfirst}}</td>
+                    <td>${{re.precio}}</td>
+                    <td><a href="{% url 'form_mod_producto' re.id %}">Modificar</a></td>
+                    <td><a href="{% url 'form_del_producto' re.id %}">Eliminar</a></td>
+                </tr>
+            </section>
+            {% endfor%}
+        </table>
+        <a href="{% url 'form_producto'%}">Nuevo Producto</a>
+
+        <br><br><br><br><br>
+
+        <!-- FOOTER -->
+
+        <footer class="pie-pagina">
+            <div class="grupo-1">
+                <div class="box">
+                    <figure>
+                        <a href="#"><img src="{% static 'core/img/logo2.png' %}"></a>
+                    </figure>
+                </div>
+                <div class="box">
+                    <h2>SOBRE NOSOTROS</h2>
+                    <p>Somos una pequeña empresa donde nuestra principal misión es ayudar a nuestro clientes a realizar el ensamblado de su PC como tambíen tener PC's Disponibles para ellos</p>
+                </div>
+                <div class="box">
+                    <h2>SIGUENOS</h2>
+                    <div class="red-social">
+                        <div class="#" class="fa fa-facebook"></div>
+                        <div class="#" class="fa fa-instragram"></div>
+                        <div class="#" class="fa fa-twitter"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="grupo-2">
+                <small>&copy; 2022 <b>RhynoSetups</b> - Todos los derechos reservados.</small>
+            </div>
+        </footer>
+
+</body>
+
+</html
